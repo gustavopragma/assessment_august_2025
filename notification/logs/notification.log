@@ -1,0 +1,427 @@
+{ timestamp=2025-08-21 16:30:35 level=INFO  } Starting NotificationApplication using Java 21.0.8 with PID 7672 (C:\Users\gusta\OneDrive\Escritorio\assessment\notification\build\classes\java\main started by gusta in C:\Users\gusta\OneDrive\Escritorio\assessment\notification)
+{ timestamp=2025-08-21 16:30:35 level=INFO  } No active profile set, falling back to 1 default profile: "default"
+{ timestamp=2025-08-21 16:30:36 level=INFO  } Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+{ timestamp=2025-08-21 16:30:36 level=INFO  } Finished Spring Data repository scanning in 39 ms. Found 1 JPA repository interface.
+{ timestamp=2025-08-21 16:30:37 level=INFO  } Tomcat initialized with port 8085 (http)
+{ timestamp=2025-08-21 16:30:37 level=INFO  } Initializing ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-21 16:30:37 level=INFO  } Starting service [Tomcat]
+{ timestamp=2025-08-21 16:30:37 level=INFO  } Starting Servlet engine: [Apache Tomcat/10.1.44]
+{ timestamp=2025-08-21 16:30:37 level=INFO  } Initializing Spring embedded WebApplicationContext
+{ timestamp=2025-08-21 16:30:37 level=INFO  } Root WebApplicationContext: initialization completed in 1247 ms
+{ timestamp=2025-08-21 16:30:37 level=INFO  } HHH000204: Processing PersistenceUnitInfo [name: default]
+{ timestamp=2025-08-21 16:30:37 level=INFO  } HHH000412: Hibernate ORM core version 6.6.26.Final
+{ timestamp=2025-08-21 16:30:37 level=INFO  } HHH000026: Second-level cache disabled
+{ timestamp=2025-08-21 16:30:37 level=INFO  } No LoadTimeWeaver setup: ignoring JPA class transformer
+{ timestamp=2025-08-21 16:30:37 level=INFO  } HikariPool-1 - Starting...
+{ timestamp=2025-08-21 16:30:37 level=INFO  } HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@603c2dee
+{ timestamp=2025-08-21 16:30:37 level=INFO  } HikariPool-1 - Start completed.
+{ timestamp=2025-08-21 16:30:37 level=INFO  } HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+{ timestamp=2025-08-21 16:30:38 level=INFO  } HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+{ timestamp=2025-08-21 16:30:38 level=INFO  } Initialized JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-21 16:30:39 level=WARN  } spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+{ timestamp=2025-08-21 16:30:39 level=INFO  } Exposing 1 endpoint beneath base path '/actuator'
+{ timestamp=2025-08-21 16:30:39 level=INFO  } Starting ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-21 16:30:39 level=INFO  } Tomcat started on port 8085 (http) with context path '/'
+{ timestamp=2025-08-21 16:30:39 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-21 16:30:39 level=INFO  } Created new connection: rabbitConnectionFactory#60052518:0/SimpleConnection@276ac94c [delegate=amqp://guest@127.0.0.1:5672/, localPort=54099]
+{ timestamp=2025-08-21 16:30:39 level=INFO  } Started NotificationApplication in 4.437 seconds (process running for 5.054)
+{ timestamp=2025-08-21 16:30:40 level=INFO  } Initializing Spring DispatcherServlet 'dispatcherServlet'
+{ timestamp=2025-08-21 16:30:40 level=INFO  } Initializing Servlet 'dispatcherServlet'
+{ timestamp=2025-08-21 16:30:40 level=INFO  } Completed initialization in 2 ms
+{ timestamp=2025-08-21 16:32:17 level=WARN  } Consumer raised exception, processing can restart if the connection factory supports it
+com.rabbitmq.client.ShutdownSignalException: connection error; protocol method: #method<connection.close>(reply-code=320, reply-text=CONNECTION_FORCED - broker forced connection closure with reason 'shutdown', class-id=0, method-id=0)
+	at com.rabbitmq.client.impl.AMQConnection.startShutdown(AMQConnection.java:1007)
+	at com.rabbitmq.client.impl.AMQConnection.shutdown(AMQConnection.java:997)
+	at com.rabbitmq.client.impl.AMQConnection.handleConnectionClose(AMQConnection.java:935)
+	at com.rabbitmq.client.impl.AMQConnection.processControlCommand(AMQConnection.java:890)
+	at com.rabbitmq.client.impl.AMQConnection$1.processAsync(AMQConnection.java:275)
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:193)
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:125)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:741)
+	at com.rabbitmq.client.impl.AMQConnection.access$400(AMQConnection.java:48)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:688)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+{ timestamp=2025-08-21 16:32:17 level=INFO  } Restarting Consumer@681ba763: tags=[[amq.ctag-ebknTHC1jWfel3HeasvkFg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@27bfa57f Shared Rabbit Connection: SimpleConnection@276ac94c [delegate=amqp://guest@127.0.0.1:5672/, localPort=54099], acknowledgeMode=AUTO local queue size=0
+{ timestamp=2025-08-21 16:32:17 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-21 16:32:18 level=WARN  } HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@13af4678 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+{ timestamp=2025-08-21 16:32:21 level=WARN  } HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6a90de9a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+{ timestamp=2025-08-21 16:32:22 level=WARN  } Consumer raised exception, processing can restart if the connection factory supports it
+org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:632)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createBareChannel(CachingConnectionFactory.java:671)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.getCachedChannelProxy(CachingConnectionFactory.java:644)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.getChannel(CachingConnectionFactory.java:533)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$ChannelCachingConnectionProxy.createChannel(CachingConnectionFactory.java:1484)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils$RabbitResourceFactory.createChannel(ConnectionFactoryUtils.java:351)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.doGetTransactionalResourceHolder(ConnectionFactoryUtils.java:156)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.getTransactionalResourceHolder(ConnectionFactoryUtils.java:102)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.getTransactionalResourceHolder(ConnectionFactoryUtils.java:85)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:625)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1482)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1322)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:406)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1251)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:678)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:647)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:593)
+	... 13 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:336)
+	... 18 common frames omitted
+Caused by: java.io.EOFException: null
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:297)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:199)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:687)
+	... 1 common frames omitted
+{ timestamp=2025-08-21 16:32:22 level=INFO  } Restarting Consumer@2059a28d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+{ timestamp=2025-08-21 16:32:22 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-21 16:32:27 level=WARN  } HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@365d936 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+{ timestamp=2025-08-21 16:32:27 level=WARN  } Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+{ timestamp=2025-08-21 16:32:27 level=INFO  } Restarting Consumer@3e8cb3d9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+{ timestamp=2025-08-21 16:32:27 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-21 16:32:29 level=WARN  } HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@603c2dee (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+{ timestamp=2025-08-21 16:32:31 level=WARN  } HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1f1c6fef (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+{ timestamp=2025-08-21 16:32:33 level=WARN  } Consumer raised exception, processing can restart if the connection factory supports it
+org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:632)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils$RabbitResourceFactory.createConnection(ConnectionFactoryUtils.java:345)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.doGetTransactionalResourceHolder(ConnectionFactoryUtils.java:140)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.getTransactionalResourceHolder(ConnectionFactoryUtils.java:102)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.getTransactionalResourceHolder(ConnectionFactoryUtils.java:85)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:625)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1482)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1322)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:406)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1251)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:678)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:647)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:593)
+	... 10 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:336)
+	... 15 common frames omitted
+Caused by: java.io.EOFException: null
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:297)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:199)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:687)
+	... 1 common frames omitted
+{ timestamp=2025-08-21 16:32:33 level=INFO  } Restarting Consumer@24153e05: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+{ timestamp=2025-08-21 16:32:33 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-21 16:32:34 level=WARN  } HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@73141698 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+{ timestamp=2025-08-21 16:32:38 level=WARN  } Consumer raised exception, processing can restart if the connection factory supports it
+org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:632)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils$RabbitResourceFactory.createConnection(ConnectionFactoryUtils.java:345)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.doGetTransactionalResourceHolder(ConnectionFactoryUtils.java:140)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.getTransactionalResourceHolder(ConnectionFactoryUtils.java:102)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.getTransactionalResourceHolder(ConnectionFactoryUtils.java:85)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:625)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1482)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1322)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:406)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1251)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:678)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:647)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:593)
+	... 10 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:336)
+	... 15 common frames omitted
+Caused by: java.io.EOFException: null
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:297)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:199)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:687)
+	... 1 common frames omitted
+{ timestamp=2025-08-21 16:32:38 level=INFO  } Restarting Consumer@53ef24e8: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+{ timestamp=2025-08-21 16:32:38 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-21 16:32:38 level=INFO  } Created new connection: rabbitConnectionFactory#60052518:5/SimpleConnection@39490d9a [delegate=amqp://guest@127.0.0.1:5672/, localPort=54194]
+{ timestamp=2025-08-21 16:33:34 level=INFO  } Waiting for workers to finish.
+{ timestamp=2025-08-21 16:33:34 level=INFO  } Successfully waited for workers to finish.
+{ timestamp=2025-08-21 16:33:34 level=INFO  } Commencing graceful shutdown. Waiting for active requests to complete
+{ timestamp=2025-08-21 16:33:34 level=INFO  } Graceful shutdown complete
+{ timestamp=2025-08-21 16:33:34 level=INFO  } Closing JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-21 16:33:34 level=INFO  } HikariPool-1 - Shutdown initiated...
+{ timestamp=2025-08-21 16:33:34 level=INFO  } HikariPool-1 - Shutdown completed.
+{ timestamp=2025-08-21 16:33:52 level=INFO  } Starting NotificationApplication using Java 21.0.8 with PID 19432 (C:\Users\gusta\OneDrive\Escritorio\assessment\notification\build\classes\java\main started by gusta in C:\Users\gusta\OneDrive\Escritorio\assessment\notification)
+{ timestamp=2025-08-21 16:33:52 level=INFO  } No active profile set, falling back to 1 default profile: "default"
+{ timestamp=2025-08-21 16:33:53 level=INFO  } Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+{ timestamp=2025-08-21 16:33:53 level=INFO  } Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interface.
+{ timestamp=2025-08-21 16:33:54 level=INFO  } Tomcat initialized with port 8085 (http)
+{ timestamp=2025-08-21 16:33:54 level=INFO  } Initializing ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-21 16:33:54 level=INFO  } Starting service [Tomcat]
+{ timestamp=2025-08-21 16:33:54 level=INFO  } Starting Servlet engine: [Apache Tomcat/10.1.44]
+{ timestamp=2025-08-21 16:33:54 level=INFO  } Initializing Spring embedded WebApplicationContext
+{ timestamp=2025-08-21 16:33:54 level=INFO  } Root WebApplicationContext: initialization completed in 1262 ms
+{ timestamp=2025-08-21 16:33:54 level=INFO  } HHH000204: Processing PersistenceUnitInfo [name: default]
+{ timestamp=2025-08-21 16:33:54 level=INFO  } HHH000412: Hibernate ORM core version 6.6.26.Final
+{ timestamp=2025-08-21 16:33:54 level=INFO  } HHH000026: Second-level cache disabled
+{ timestamp=2025-08-21 16:33:54 level=INFO  } No LoadTimeWeaver setup: ignoring JPA class transformer
+{ timestamp=2025-08-21 16:33:54 level=INFO  } HikariPool-1 - Starting...
+{ timestamp=2025-08-21 16:33:54 level=INFO  } HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@603c2dee
+{ timestamp=2025-08-21 16:33:54 level=INFO  } HikariPool-1 - Start completed.
+{ timestamp=2025-08-21 16:33:54 level=INFO  } HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+{ timestamp=2025-08-21 16:33:55 level=INFO  } HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+{ timestamp=2025-08-21 16:33:55 level=INFO  } Initialized JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-21 16:33:55 level=WARN  } spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Exposing 1 endpoint beneath base path '/actuator'
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Starting ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Tomcat started on port 8085 (http) with context path '/'
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Created new connection: rabbitConnectionFactory#49e54217:0/SimpleConnection@5565d718 [delegate=amqp://guest@127.0.0.1:5672/, localPort=54283]
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Started NotificationApplication in 4.274 seconds (process running for 4.938)
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Initializing Spring DispatcherServlet 'dispatcherServlet'
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Initializing Servlet 'dispatcherServlet'
+{ timestamp=2025-08-21 16:33:56 level=INFO  } Completed initialization in 2 ms
+{ timestamp=2025-08-21 16:35:41 level=INFO  } Message read for QUEUE notification-queue with BODY {"id":"8656c33c-5b6a-47fd-9763-6c365b7f1127","type":"TICKET_CREATED_SPECTATOR","message":"TICKET CREATED WITH ID fad9b710-5bdb-429f-aed1-d542f6b296df FOR TOURNAMENT WITH ID 1111 TO USER WITH ID null AND TYPE SPECTATOR","tournament":"1111"}
+{ timestamp=2025-08-21 16:38:29 level=INFO  } Waiting for workers to finish.
+{ timestamp=2025-08-21 16:38:30 level=INFO  } Successfully waited for workers to finish.
+{ timestamp=2025-08-21 16:38:30 level=INFO  } Commencing graceful shutdown. Waiting for active requests to complete
+{ timestamp=2025-08-21 16:38:30 level=INFO  } Graceful shutdown complete
+{ timestamp=2025-08-21 16:38:30 level=INFO  } Closing JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-21 16:38:30 level=INFO  } HikariPool-1 - Shutdown initiated...
+{ timestamp=2025-08-21 16:38:30 level=INFO  } HikariPool-1 - Shutdown completed.
+{ timestamp=2025-08-22 14:21:07 level=INFO  } Starting NotificationApplication using Java 21.0.8 with PID 4264 (C:\Users\gusta\OneDrive\Escritorio\assessment\notification\build\classes\java\main started by gusta in C:\Users\gusta\OneDrive\Escritorio\assessment\notification)
+{ timestamp=2025-08-22 14:21:07 level=INFO  } No active profile set, falling back to 1 default profile: "default"
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Finished Spring Data repository scanning in 39 ms. Found 1 JPA repository interface.
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Tomcat initialized with port 8085 (http)
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Initializing ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Starting service [Tomcat]
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Starting Servlet engine: [Apache Tomcat/10.1.44]
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Initializing Spring embedded WebApplicationContext
+{ timestamp=2025-08-22 14:21:08 level=INFO  } Root WebApplicationContext: initialization completed in 1412 ms
+{ timestamp=2025-08-22 14:21:08 level=INFO  } HHH000204: Processing PersistenceUnitInfo [name: default]
+{ timestamp=2025-08-22 14:21:08 level=INFO  } HHH000412: Hibernate ORM core version 6.6.26.Final
+{ timestamp=2025-08-22 14:21:08 level=INFO  } HHH000026: Second-level cache disabled
+{ timestamp=2025-08-22 14:21:09 level=INFO  } No LoadTimeWeaver setup: ignoring JPA class transformer
+{ timestamp=2025-08-22 14:21:09 level=INFO  } HikariPool-1 - Starting...
+{ timestamp=2025-08-22 14:21:09 level=INFO  } HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d229912
+{ timestamp=2025-08-22 14:21:09 level=INFO  } HikariPool-1 - Start completed.
+{ timestamp=2025-08-22 14:21:09 level=INFO  } HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+{ timestamp=2025-08-22 14:21:10 level=INFO  } HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+{ timestamp=2025-08-22 14:21:10 level=INFO  } Initialized JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:21:10 level=WARN  } spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+{ timestamp=2025-08-22 14:21:11 level=INFO  } Exposing 1 endpoint beneath base path '/actuator'
+{ timestamp=2025-08-22 14:21:11 level=INFO  } Starting ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:21:11 level=INFO  } Tomcat started on port 8085 (http) with context path '/'
+{ timestamp=2025-08-22 14:21:11 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-22 14:21:11 level=INFO  } Created new connection: rabbitConnectionFactory#fe58644:0/SimpleConnection@121ec5c2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58497]
+{ timestamp=2025-08-22 14:21:11 level=INFO  } Started NotificationApplication in 4.561 seconds (process running for 6.522)
+{ timestamp=2025-08-22 14:21:15 level=INFO  } Initializing Spring DispatcherServlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:21:15 level=INFO  } Initializing Servlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:21:15 level=INFO  } Completed initialization in 1 ms
+{ timestamp=2025-08-22 14:22:41 level=INFO  } Message read for QUEUE notification-queue with BODY {"id":"beace94d-8d05-404c-b009-942712e4570b","type":"TICKET_CREATED_SPECTATOR","message":"TICKET CREATED WITH ID cda079d7-3843-4b4d-91cf-f605328043c2 FOR TOURNAMENT WITH ID 1111 TO USER WITH ID null AND TYPE SPECTATOR","tournament":"1111"}
+{ timestamp=2025-08-22 14:29:09 level=INFO  } Message read for QUEUE notification-queue with BODY {"id":"71434748-0910-41c0-859a-cb2453848846","type":"TICKET_CREATED_SPECTATOR","message":"TICKET CREATED WITH ID e081fdee-dd82-4d22-9b7b-254a894163fd FOR TOURNAMENT WITH ID 1111 TO USER WITH ID null AND TYPE SPECTATOR","tournament":"1111"}
+{ timestamp=2025-08-22 14:29:29 level=INFO  } Message read for QUEUE notification-queue with BODY {"id":"faed712d-348e-4dbb-8a8c-c2f8926dc009","type":"TICKET_CREATED_PARTICIPANT","message":"TICKET CREATED WITH ID b39a3bfa-ee2b-4399-b13f-aa423dba32a9 FOR TOURNAMENT WITH ID 1111 TO USER WITH ID null AND TYPE PARTICIPANT","tournament":"1111"}
+{ timestamp=2025-08-22 14:33:33 level=INFO  } Waiting for workers to finish.
+{ timestamp=2025-08-22 14:33:34 level=INFO  } Successfully waited for workers to finish.
+{ timestamp=2025-08-22 14:33:34 level=INFO  } Commencing graceful shutdown. Waiting for active requests to complete
+{ timestamp=2025-08-22 14:33:34 level=INFO  } Graceful shutdown complete
+{ timestamp=2025-08-22 14:33:34 level=INFO  } Closing JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:33:34 level=INFO  } HikariPool-1 - Shutdown initiated...
+{ timestamp=2025-08-22 14:33:34 level=INFO  } HikariPool-1 - Shutdown completed.
+{ timestamp=2025-08-22 14:35:34 level=INFO  } Starting NotificationApplication using Java 21.0.8 with PID 10164 (C:\Users\gusta\OneDrive\Escritorio\assessment\notification\build\classes\java\main started by gusta in C:\Users\gusta\OneDrive\Escritorio\assessment\notification)
+{ timestamp=2025-08-22 14:35:34 level=INFO  } No active profile set, falling back to 1 default profile: "default"
+{ timestamp=2025-08-22 14:35:35 level=INFO  } Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+{ timestamp=2025-08-22 14:35:35 level=INFO  } Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interface.
+{ timestamp=2025-08-22 14:35:35 level=INFO  } Tomcat initialized with port 8085 (http)
+{ timestamp=2025-08-22 14:35:35 level=INFO  } Initializing ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:35:35 level=INFO  } Starting service [Tomcat]
+{ timestamp=2025-08-22 14:35:35 level=INFO  } Starting Servlet engine: [Apache Tomcat/10.1.44]
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Initializing Spring embedded WebApplicationContext
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Root WebApplicationContext: initialization completed in 1339 ms
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Database: jdbc:postgresql://localhost:5432/notification (PostgreSQL 17.6)
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Schema history table "public"."flyway_schema_history" does not exist yet
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Successfully validated 1 migration (execution time 00:00.015s)
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Creating Schema History table "public"."flyway_schema_history" with baseline ...
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Successfully baselined schema with version: 1
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Current version of schema "public": 1
+{ timestamp=2025-08-22 14:35:36 level=INFO  } Schema "public" is up to date. No migration necessary.
+{ timestamp=2025-08-22 14:35:36 level=INFO  } HHH000204: Processing PersistenceUnitInfo [name: default]
+{ timestamp=2025-08-22 14:35:36 level=INFO  } HHH000412: Hibernate ORM core version 6.6.26.Final
+{ timestamp=2025-08-22 14:35:36 level=INFO  } HHH000026: Second-level cache disabled
+{ timestamp=2025-08-22 14:35:37 level=INFO  } No LoadTimeWeaver setup: ignoring JPA class transformer
+{ timestamp=2025-08-22 14:35:37 level=INFO  } HikariPool-1 - Starting...
+{ timestamp=2025-08-22 14:35:37 level=INFO  } HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7f94541b
+{ timestamp=2025-08-22 14:35:37 level=INFO  } HikariPool-1 - Start completed.
+{ timestamp=2025-08-22 14:35:37 level=INFO  } HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+{ timestamp=2025-08-22 14:35:37 level=INFO  } HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+{ timestamp=2025-08-22 14:35:37 level=INFO  } Initialized JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:35:38 level=WARN  } spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+{ timestamp=2025-08-22 14:35:38 level=INFO  } Exposing 1 endpoint beneath base path '/actuator'
+{ timestamp=2025-08-22 14:35:39 level=INFO  } Starting ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:35:39 level=INFO  } Tomcat started on port 8085 (http) with context path '/'
+{ timestamp=2025-08-22 14:35:39 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-22 14:35:39 level=INFO  } Created new connection: rabbitConnectionFactory#a05727b:0/SimpleConnection@23c3f787 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58715]
+{ timestamp=2025-08-22 14:35:39 level=INFO  } Started NotificationApplication in 4.923 seconds (process running for 7.012)
+{ timestamp=2025-08-22 14:35:40 level=INFO  } Initializing Spring DispatcherServlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:35:40 level=INFO  } Initializing Servlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:35:40 level=INFO  } Completed initialization in 1 ms
+{ timestamp=2025-08-22 14:36:02 level=INFO  } Waiting for workers to finish.
+{ timestamp=2025-08-22 14:36:03 level=INFO  } Successfully waited for workers to finish.
+{ timestamp=2025-08-22 14:36:03 level=INFO  } Commencing graceful shutdown. Waiting for active requests to complete
+{ timestamp=2025-08-22 14:36:03 level=INFO  } Graceful shutdown complete
+{ timestamp=2025-08-22 14:36:03 level=INFO  } Closing JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:36:03 level=INFO  } HikariPool-1 - Shutdown initiated...
+{ timestamp=2025-08-22 14:36:03 level=INFO  } HikariPool-1 - Shutdown completed.
+{ timestamp=2025-08-22 14:36:05 level=INFO  } Starting NotificationApplication using Java 21.0.8 with PID 19528 (C:\Users\gusta\OneDrive\Escritorio\assessment\notification\build\classes\java\main started by gusta in C:\Users\gusta\OneDrive\Escritorio\assessment\notification)
+{ timestamp=2025-08-22 14:36:05 level=INFO  } No active profile set, falling back to 1 default profile: "default"
+{ timestamp=2025-08-22 14:36:06 level=INFO  } Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+{ timestamp=2025-08-22 14:36:06 level=INFO  } Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interface.
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Tomcat initialized with port 8085 (http)
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Initializing ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Starting service [Tomcat]
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Starting Servlet engine: [Apache Tomcat/10.1.44]
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Initializing Spring embedded WebApplicationContext
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Root WebApplicationContext: initialization completed in 1531 ms
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Database: jdbc:postgresql://localhost:5432/notification (PostgreSQL 17.6)
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Successfully validated 2 migrations (execution time 00:00.024s)
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Current version of schema "public": 1
+{ timestamp=2025-08-22 14:36:07 level=INFO  } Schema "public" is up to date. No migration necessary.
+{ timestamp=2025-08-22 14:36:07 level=INFO  } HHH000204: Processing PersistenceUnitInfo [name: default]
+{ timestamp=2025-08-22 14:36:07 level=INFO  } HHH000412: Hibernate ORM core version 6.6.26.Final
+{ timestamp=2025-08-22 14:36:07 level=INFO  } HHH000026: Second-level cache disabled
+{ timestamp=2025-08-22 14:36:08 level=INFO  } No LoadTimeWeaver setup: ignoring JPA class transformer
+{ timestamp=2025-08-22 14:36:08 level=INFO  } HikariPool-1 - Starting...
+{ timestamp=2025-08-22 14:36:08 level=INFO  } HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e9dcdd3
+{ timestamp=2025-08-22 14:36:08 level=INFO  } HikariPool-1 - Start completed.
+{ timestamp=2025-08-22 14:36:08 level=INFO  } HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+{ timestamp=2025-08-22 14:36:09 level=INFO  } HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+{ timestamp=2025-08-22 14:36:09 level=INFO  } Initialized JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:36:09 level=WARN  } spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Exposing 1 endpoint beneath base path '/actuator'
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Starting ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Tomcat started on port 8085 (http) with context path '/'
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Created new connection: rabbitConnectionFactory#4973dacf:0/SimpleConnection@19fdcaba [delegate=amqp://guest@127.0.0.1:5672/, localPort=58749]
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Started NotificationApplication in 5.215 seconds (process running for 5.911)
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Initializing Spring DispatcherServlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Initializing Servlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:36:10 level=INFO  } Completed initialization in 3 ms
+{ timestamp=2025-08-22 14:36:46 level=INFO  } Message read for QUEUE notification-queue with BODY {"id":"80cc498c-b1f1-4f5a-a7cb-92c3f7ba6c11","type":"TICKET_CREATED_SPECTATOR","message":"TICKET CREATED WITH ID 25ad5cbc-08e0-401f-aee5-b47ee71801f7 FOR TOURNAMENT WITH ID 1111 TO USER WITH ID null AND TYPE SPECTATOR","tournament":"1111"}
+{ timestamp=2025-08-22 14:37:23 level=INFO  } Waiting for workers to finish.
+{ timestamp=2025-08-22 14:37:24 level=INFO  } Successfully waited for workers to finish.
+{ timestamp=2025-08-22 14:37:24 level=INFO  } Commencing graceful shutdown. Waiting for active requests to complete
+{ timestamp=2025-08-22 14:37:24 level=INFO  } Graceful shutdown complete
+{ timestamp=2025-08-22 14:37:24 level=INFO  } Closing JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:37:24 level=INFO  } HikariPool-1 - Shutdown initiated...
+{ timestamp=2025-08-22 14:37:24 level=INFO  } HikariPool-1 - Shutdown completed.
+{ timestamp=2025-08-22 14:42:21 level=INFO  } Starting NotificationApplication using Java 21.0.8 with PID 19616 (C:\Users\gusta\OneDrive\Escritorio\assessment\notification\build\classes\java\main started by gusta in C:\Users\gusta\OneDrive\Escritorio\assessment\notification)
+{ timestamp=2025-08-22 14:42:21 level=INFO  } No active profile set, falling back to 1 default profile: "default"
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Tomcat initialized with port 8085 (http)
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Initializing ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Starting service [Tomcat]
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Starting Servlet engine: [Apache Tomcat/10.1.44]
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Initializing Spring embedded WebApplicationContext
+{ timestamp=2025-08-22 14:42:22 level=INFO  } Root WebApplicationContext: initialization completed in 1702 ms
+{ timestamp=2025-08-22 14:42:23 level=INFO  } Database: jdbc:postgresql://localhost:5432/notification (PostgreSQL 17.6)
+{ timestamp=2025-08-22 14:42:23 level=INFO  } Successfully validated 2 migrations (execution time 00:00.028s)
+{ timestamp=2025-08-22 14:42:23 level=INFO  } Current version of schema "public": 1
+{ timestamp=2025-08-22 14:42:23 level=INFO  } Schema "public" is up to date. No migration necessary.
+{ timestamp=2025-08-22 14:42:23 level=INFO  } HHH000204: Processing PersistenceUnitInfo [name: default]
+{ timestamp=2025-08-22 14:42:23 level=INFO  } HHH000412: Hibernate ORM core version 6.6.26.Final
+{ timestamp=2025-08-22 14:42:23 level=INFO  } HHH000026: Second-level cache disabled
+{ timestamp=2025-08-22 14:42:24 level=INFO  } No LoadTimeWeaver setup: ignoring JPA class transformer
+{ timestamp=2025-08-22 14:42:24 level=INFO  } HikariPool-1 - Starting...
+{ timestamp=2025-08-22 14:42:24 level=INFO  } HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@38f63756
+{ timestamp=2025-08-22 14:42:24 level=INFO  } HikariPool-1 - Start completed.
+{ timestamp=2025-08-22 14:42:24 level=INFO  } HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+{ timestamp=2025-08-22 14:42:25 level=INFO  } HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+{ timestamp=2025-08-22 14:42:25 level=INFO  } Initialized JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:42:25 level=WARN  } spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Exposing 1 endpoint beneath base path '/actuator'
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Starting ProtocolHandler ["http-nio-8085"]
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Tomcat started on port 8085 (http) with context path '/'
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Attempting to connect to: [localhost:5672]
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Created new connection: rabbitConnectionFactory#5abf9a76:0/SimpleConnection@10f7bc42 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58956]
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Started NotificationApplication in 5.612 seconds (process running for 6.298)
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Initializing Spring DispatcherServlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Initializing Servlet 'dispatcherServlet'
+{ timestamp=2025-08-22 14:42:26 level=INFO  } Completed initialization in 1 ms
+{ timestamp=2025-08-22 14:43:43 level=INFO  } Message read for QUEUE notification-queue with BODY {"id":"f9cf5582-d35b-475b-af51-bf4ece951e25","type":"TICKET_CREATED_SPECTATOR","message":"TICKET CREATED WITH ID bf16f8e6-a06b-4e63-b4b4-263e3cc3b73f FOR TOURNAMENT WITH ID 1111 TO USER WITH ID null AND TYPE SPECTATOR","tournament":"1111"}
+{ timestamp=2025-08-22 14:44:42 level=INFO  } Waiting for workers to finish.
+{ timestamp=2025-08-22 14:44:42 level=INFO  } Successfully waited for workers to finish.
+{ timestamp=2025-08-22 14:44:42 level=INFO  } Commencing graceful shutdown. Waiting for active requests to complete
+{ timestamp=2025-08-22 14:44:42 level=INFO  } Graceful shutdown complete
+{ timestamp=2025-08-22 14:44:42 level=INFO  } Closing JPA EntityManagerFactory for persistence unit 'default'
+{ timestamp=2025-08-22 14:44:42 level=INFO  } HikariPool-1 - Shutdown initiated...
+{ timestamp=2025-08-22 14:44:43 level=INFO  } HikariPool-1 - Shutdown completed.

@@ -1,0 +1,139 @@
+services:
+  notification:
+    build:
+      context: ./notification
+      dockerfile: Dockerfile
+    container_name: notification
+    ports:
+      - 8085:8080
+    environment:
+      - TOURNAMENT_DB_USERNAME=postgres
+      - TOURNAMENT_DB_PASSWORD=postgres
+      - TOURNAMENT_DB_URL=jdbc:postgresql://postgres:5432/notification
+      - RABBIT_HOST=rabbitmq
+      - RABBIT_PORT=5672
+      - RABBIT_USERNAME=guest
+      - RABBIT_PASSWORD=guest
+    restart: always
+    volumes:
+      - notification-logs:/app/logs
+    depends_on:
+      - postgres
+      - rabbitmq
+  tournament:
+    build:
+      context: ./tournament
+      dockerfile: Dockerfile
+    container_name: tournament
+    ports:
+      - 8080:8080
+    environment:
+      - TOURNAMENT_DB_USERNAME=postgres
+      - TOURNAMENT_DB_PASSWORD=postgres
+      - TOURNAMENT_DB_URL=jdbc:postgresql://postgres:5432/postgres
+      - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/tournament
+      - RABBIT_HOST=rabbitmq
+      - RABBIT_PORT=5672
+      - RABBIT_USERNAME=guest
+      - RABBIT_PASSWORD=guest
+    restart: always
+    volumes:
+      - tournament-logs:/app/logs
+    depends_on:
+      - postgres
+      - rabbitmq
+      - keycloak
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: always
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    volumes:
+      - grafana-data:/var/lib/grafana
+    ports:
+      - 3001:3000
+    depends_on:
+      - loki
+      - alloy
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    ports:
+      - 3100:3100
+    command: -config.file=/etc/loki/loki-config.yaml
+    volumes:
+      - ./loki-config.yaml:/etc/loki/loki-config.yaml
+    restart: always    
+  alloy:
+    image: grafana/alloy
+    container_name: alloy
+    volumes:
+      - ./config.alloy:/etc/alloy/config.alloy
+      - tournament-logs:/logs/tournament
+      - notification-logs:/logs/notification
+    ports:
+      - 12345:12345
+    depends_on:
+      - loki
+    restart: always
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.3.2
+    container_name: keycloak
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+      - KC_DB=postgres
+      - KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=postgres
+    ports:
+      - 8081:8080
+    depends_on:
+      - postgres
+    restart: always
+    command: "start-dev"
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: always
+    volumes:
+      - prometheus-data:/prometheus
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    ports:
+      - 9090:9090
+    command: --config.file=/etc/prometheus/prometheus.yaml
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    environment:
+     - RABBITMQ_NODENAME=rabbitmq@rabbitmq
+    hostname: rabbitmq
+volumes:
+  notification-logs:
+    driver: local
+  tournament-logs:
+    driver: local
+  rabbitmq-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  keycloak-data:
+    driver: local
+  grafana-data:
+    driver: local
+  postgres-data:
+    driver: local
