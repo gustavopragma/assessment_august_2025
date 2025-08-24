@@ -1,0 +1,545 @@
+openapi: 3.0.3
+info:
+  title: Tournament Service 1.0.0
+  description: |-
+    This is an API that offers differents operations for videogame tournament app
+  contact:
+    email: gustavo.pinto@pragma.com.co
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/v1
+tags:
+  - name: Categories
+    description: Everything about categories
+  - name: Streamings
+    description: Everything about streamings
+  - name: Tickets
+    description: Everything about tickets
+  - name: Tournaments
+    description: Everything about tournaments
+  - name: Videogames
+    description: Everything about videogames
+paths:
+  /categories:
+    post:
+      tags:
+        - Categories
+      summary: Create a category
+      description: Create a category
+      operationId: createCategory
+      requestBody:
+        description: Create a category
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+        required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Successful operation
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+    get:
+      tags:
+        - Categories
+      summary: Get all categories
+      description: Get all categories
+      operationId: getCategories
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Category'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /streamings:
+    post:
+      tags:
+        - Streamings
+      summary: Create a streaming
+      description: Create a streaming
+      operationId: createStreaming
+      requestBody:
+        description: Create a streaming
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Streaming'
+        required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Successful operation
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /streamings/{id}:
+    get:
+      tags:
+        - Streamings
+      summary: Get streaming by id
+      description: Get streaming by id
+      operationId: Get streaming by id
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 1234
+          required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Streaming'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /tickets:
+    post:
+      tags:
+        - Tickets
+      summary: Create a ticket
+      description: Create a ticket
+      operationId: Create a ticket
+      requestBody:
+        description: Create a ticket
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
+        required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Successful operation
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /tickets/{id}:
+    get:
+      tags:
+        - Tickets
+      summary: Get ticket by id
+      description: Get ticket by id
+      operationId: Get ticket by id
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 1234
+          required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /tickets/totalSpectators/{tournamentId}:
+    get:
+      tags:
+        - Tickets
+      summary: Get total spectators by tournament id
+      description: Get total spectators by tournament id
+      operationId: Get total spectators by tournament id
+      parameters:
+        - name: tournamentId
+          in: path
+          schema:
+            type: string
+            example: 1234
+          required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TotalSpectators'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /tickets/totalParticipants/{tournamentId}:
+    get:
+      tags:
+        - Tickets
+      summary: Get total participants by tournament id
+      description: Get total participants by tournament id
+      operationId: Get total participants by tournament id
+      parameters:
+        - name: tournamentId
+          in: path
+          schema:
+            type: string
+            example: 1234
+          required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TotalParticipants'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /tournaments:
+    post:
+      tags:
+        - Tournaments
+      summary: Create a tournament
+      description: Create a tournament
+      operationId: Create a tournament
+      requestBody:
+        description: Create a tournament
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tournament'
+        required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Successful operation
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /tournaments/{id}:
+    get:
+      tags:
+        - Tournaments
+      summary: Get tournament by id
+      description: Get tournament by id
+      operationId: Get tournament by id
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 1234
+          required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tournament'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /videogames:
+    post:
+      tags:
+        - Videogames
+      summary: Create a videogame
+      description: Create a videogame
+      operationId: Create a videogame
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Create a videogame
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Videogame'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+  /videogames/{id}:
+    get:
+      tags:
+        - Videogames
+      summary: Get videogame by id
+      description: Get videogame by id
+      operationId: Get videogame by id
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 1234
+          required: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Videogame'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    TotalParticipants:
+      type: object
+      properties:
+        totalParticipants:
+          type: number
+          example: 50
+    TotalSpectators:
+      type: object
+      properties:
+        totalSpectators:
+          type: number
+          example: 50
+    Videogame:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234
+        name:
+          type: string
+          example: Videogame 1
+        genre:
+          type: string
+          example: Shooter
+        numberPlayers:
+          type: number
+          example: 4
+    Tournament:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234
+        name:
+          type: string
+          example: Tournament 1
+        streaming:
+          type: string
+          example: 1234
+        category:
+          type: string
+          example: 1234
+        videogame:
+          type: string
+          example: 1234
+        owner:
+          type: string
+          example: 1234
+    Ticket:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234
+        type:
+          type: string
+          example: SPECTATOR
+        price:
+          type: number
+          example: 20000
+        saleComission:
+          type: number
+          example: 50
+        stage:
+          type: string
+          example: preventa
+        active:
+          type: boolean
+          example: true
+        tournament:
+          type: string
+          example: 1234
+        user:
+          type: string
+          example: 1234
+    Streaming:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234
+        name:
+          type: string
+          example: Streaming 1
+        platform:
+          type: string
+          example: Platform 1
+        url:
+          type: string
+          example: http://example.com
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234
+        name:
+          type: string
+          example: Tournament 1
+        maxParticipants:
+          type: number
+          example: 10
+        maxSpectators:
+          type: number
+          example: 10
+        free:
+          type: boolean
+          example: true
+    404Error:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: 404
+        message:
+          type: string
+          example: Not found
+    400Error:
+      type: object
+      properties:
+        statusCode:
+          type: string
+          example: 400
+        message:
+          type: string
+          example: Bad request
+    500Error:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          example: 2024-04-20T15:07:08.756+00:00
+        status:
+          type: number
+          example: 500
+        error:
+          type: string
+          example: error
+        path:
+          type: string
+          example: /api/v1/auth/register

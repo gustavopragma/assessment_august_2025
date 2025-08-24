@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Notification Service 1.0.0
+  description: |-
+    This is an API that offers differents operations for notifications in videogame tournament app
+  contact:
+    email: gustavo.pinto@pragma.com.co
+  version: 1.0.0
+servers:
+  - url: http://localhost:8085/api/v1/notifications
+tags:
+  - name: Notifications
+    description: Everything about notifications
+paths:
+  /tournaments/{tournamentId}:
+    get:
+      tags:
+        - Notifications
+      summary: Get all notifications by tournament id
+      description: Get all notifications by tournament id
+      operationId: getNotifications
+      parameters:
+        - name: tournamentId
+          in: path
+          schema:
+            type: string
+            example: 1234
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Notification'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+components:
+  schemas:
+    Notification:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234
+        type:
+          type: string
+          example: TICKET_CREATED
+        message:
+          type: string
+          example: TICKET CREATED FOR TOURNAMENT
+        tournament:
+          type: string
+          example: 1234
+    500Error:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          example: 2024-04-20T15:07:08.756+00:00
+        status:
+          type: number
+          example: 500
+        error:
+          type: string
+          example: error
+        path:
+          type: string
+          example: /api/v1/auth/register
