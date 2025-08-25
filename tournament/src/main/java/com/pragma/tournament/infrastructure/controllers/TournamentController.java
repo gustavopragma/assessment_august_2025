@@ -3,6 +3,8 @@ package com.pragma.tournament.infrastructure.controllers;
 import com.pragma.tournament.application.usecases.TournamentUseCases;
 import com.pragma.tournament.domain.models.Tournament;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +18,9 @@ public class TournamentController {
 
     @PostMapping(value = "")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createTournament(@RequestBody Tournament tournament) {
+    public void createTournament(@RequestBody Tournament tournament, Authentication authentication) {
+        Jwt jwt = (Jwt) authentication.getPrincipal();
+        tournament.setOwner(jwt.getSubject());
         tournamentUseCases.createTournament(tournament);
     }
 

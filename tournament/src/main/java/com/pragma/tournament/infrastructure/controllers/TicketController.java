@@ -4,6 +4,8 @@ import com.pragma.tournament.application.usecases.TicketUseCases;
 import com.pragma.tournament.domain.models.Ticket;
 import com.pragma.tournament.infrastructure.dtos.TotalParticipantsResponseDTO;
 import com.pragma.tournament.infrastructure.dtos.TotalSpectatorsResponseDTO;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +18,9 @@ public class TicketController {
     }
 
     @PostMapping("")
-    public String createTicket(@RequestBody Ticket ticket) {
+    public String createTicket(@RequestBody Ticket ticket, Authentication authentication) {
+        Jwt jwt = (Jwt) authentication.getPrincipal();
+        ticket.setUser(jwt.getSubject());
         return ticketUseCases.createTicket(ticket);
     }
 
